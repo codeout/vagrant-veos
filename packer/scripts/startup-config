@@ -11,6 +11,7 @@ username admin privilege 15 role network-admin secret 0 admin
 username vagrant privilege 15 role network-admin secret 0 vagrant
 !
 interface Management1
+  ip address dhcp
 !
 no ip routing
 !

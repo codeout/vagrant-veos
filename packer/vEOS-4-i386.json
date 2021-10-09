@@ -26,17 +26,18 @@
             "username admin privilege 15 role network-admin secret admin<enter>",
             "<exit>"
           ],
+          "acpi_shutdown": true,
           "type": "virtualbox-ovf",
           "name" : "vEOS",
           "vm_name": "vEOS-{{user `version`}}",
           "headless" : "True",
           "source_path": "source/vEOS.ovf",
           "output_directory" : "vEOS-{{user `version`}}",
-          "export_opts" : [ "--iso" ],
+          "export_opts" : [ "--options", "iso" ],
           "guest_additions_mode" : "disable",
           "virtualbox_version_file" : "/mnt/flash/vbox_version",
-          "ssh_username": "admin",
-          "ssh_password": "admin",
+          "ssh_username": "root",
+          "ssh_password": "arista",
           "vboxmanage": [
               [ "modifyvm","{{.Name}}","--memory","{{user `ram`}}" ],
               [ "modifyvm","{{.Name}}","--cpus","1" ],
@@ -54,8 +55,7 @@
               [ "modifyvm","{{.Name}}","--nicpromisc4","allow-all" ],
               [ "modifyvm","{{.Name}}","--nic5","intnet" ],
               [ "modifyvm","{{.Name}}","--intnet5","intnet{{.Name}}-5" ],
-              [ "modifyvm","{{.Name}}","--nicpromisc5","allow-all" ],
-              [ "modifyvm","{{.Name}}","--uart1", "0x3F8", "4", "--uartmode1","server", "\\\\.\\pipe\\vEOS-build-serial" ]
+              [ "modifyvm","{{.Name}}","--nicpromisc5","allow-all" ]
           ],
           "vboxmanage_post": [
               [ "modifyvm","{{.Name}}","--nic1","intnet" ],
