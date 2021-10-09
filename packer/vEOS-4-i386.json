@@ -26,6 +26,7 @@
             "username admin privilege 15 role network-admin secret admin<enter>",
             "<exit>"
           ],
+          "acpi_shutdown": true,
           "type": "virtualbox-ovf",
           "name" : "vEOS",
           "vm_name": "vEOS-{{user `version`}}",
