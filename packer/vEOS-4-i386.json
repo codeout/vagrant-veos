@@ -32,7 +32,7 @@
           "headless" : "True",
           "source_path": "source/vEOS.ovf",
           "output_directory" : "vEOS-{{user `version`}}",
-          "export_opts" : [ "--iso" ],
+          "export_opts" : [ "--options", "iso" ],
           "guest_additions_mode" : "disable",
           "virtualbox_version_file" : "/mnt/flash/vbox_version",
           "ssh_username": "admin",
