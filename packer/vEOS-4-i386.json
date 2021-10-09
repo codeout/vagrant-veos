@@ -35,8 +35,8 @@
           "export_opts" : [ "--options", "iso" ],
           "guest_additions_mode" : "disable",
           "virtualbox_version_file" : "/mnt/flash/vbox_version",
-          "ssh_username": "admin",
-          "ssh_password": "admin",
+          "ssh_username": "root",
+          "ssh_password": "arista",
           "vboxmanage": [
               [ "modifyvm","{{.Name}}","--memory","{{user `ram`}}" ],
               [ "modifyvm","{{.Name}}","--cpus","1" ],
